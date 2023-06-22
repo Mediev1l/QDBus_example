@@ -18,8 +18,10 @@ Column {
     Text {
         id: title
 
-        font.pixelSize: 20
-        font.bold: true
+        font {
+            pixelSize: 20
+            bold: true
+        }
     }
 
     Button {
@@ -59,8 +61,10 @@ Column {
     Text {
         id: connectionText
 
-        font.pixelSize: 10
-        font.bold: true
+        font {
+            pixelSize: 10
+            bold: true
+        }
     }
 
 }

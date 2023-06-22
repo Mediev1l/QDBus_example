@@ -50,7 +50,10 @@ Window {
                 text: "Status: " + UI.hardwareStatus
                 visible: UI.hardwareStatus !== ""
              }
-             ramText.text: UI.ramUsage
+             ramText {
+                 text: UI.ramUsage
+                 visible: UI.ramUsage !== 0
+             }
 
              pingButton.onClicked: {
                  UI.hardwarePingClicked()

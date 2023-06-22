@@ -49,9 +49,6 @@ public slots:
     void ramUsageClicked();
 
 signals:
-    void ping(const QString &message);
-    void status(const QString &currentStatus);
-
     void cacheConnectedChanged();
     void cachePingMessageChanged();
     void cacheStatusChanged();

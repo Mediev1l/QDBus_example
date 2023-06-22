@@ -5,6 +5,7 @@ UI::UI(QObject *parent)
 {
     m_cacheInterface = new com::scythestudio::cache(com::scythestudio::cache::staticInterfaceName(),  "/Cache", QDBusConnection::sessionBus(), this);
     m_hardwareInterface = new com::scythestudio::hardware(com::scythestudio::hardware::staticInterfaceName(), "/Hardware", QDBusConnection::sessionBus(), this);
+
     startTimer(1000);
 }
 
