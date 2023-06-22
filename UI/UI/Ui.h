@@ -66,12 +66,12 @@ private:
     com::scythestudio::cache* m_cacheInterface;
     com::scythestudio::hardware* m_hardwareInterface;
 
-    bool m_cacheConnected;
+    bool m_cacheConnected{false};
     QString m_cachePingMessage;
     QString m_cacheStatus;
     int m_cacheTimer{};
 
-    bool m_hardwareConnected;
+    bool m_hardwareConnected{false};
     QString m_hardwarePingMessage;
     QString m_hardwareStatus;
     int m_hardwareTimer{};

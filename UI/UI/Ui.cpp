@@ -7,22 +7,28 @@ UI::UI(QObject *parent)
     m_hardwareInterface = new com::scythestudio::hardware(com::scythestudio::hardware::staticInterfaceName(), "/Hardware", QDBusConnection::sessionBus(), this);
 
     startTimer(1000);
+
+    qDebug() << "[UI] Created";
 }
 
 
 void UI::timerEvent(QTimerEvent *event)
 {
     Q_UNUSED(event);
-    if (m_cacheInterface->isValid()) {
+    if (m_cacheInterface->isValid() && !m_cacheConnected) {
        setCacheConnected(true);
-    } else {
+       qDebug() << "[UI] Cache connected";
+    } else if (!m_cacheInterface->isValid() && m_cacheConnected) {
        setCacheConnected(false);
+       qDebug() << "[UI] Cache disconnected";
     }
 
-    if (m_hardwareInterface->isValid()){
+    if (m_hardwareInterface->isValid() && !m_hardwareConnected){
        setHardwareConnected(true);
-    } else {
+       qDebug() << "[UI] Hardware connected";
+    } else if (!m_hardwareInterface->isValid() && m_hardwareConnected) {
        setHardwareConnected(false);
+       qDebug() << "[UI] Hardware disconnected";
     }
 
     if(m_cacheTimer > 0 && !m_cachePingMessage.isEmpty()) {

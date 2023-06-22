@@ -16,6 +16,8 @@ Cache::Cache(QObject *parent)
     if(!connection.registerObject("/Cache", this)) {
        qDebug() << "object registration error " << QDBusConnection::sessionBus().lastError().message();
     }
+
+    qDebug() << "[Cache adaptor] Created";
 }
 
 QString Cache::ping(const QString &message)

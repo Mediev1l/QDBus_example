@@ -13,6 +13,8 @@ Hardware::Hardware(QObject *parent)
     if(!connection.registerObject("/Hardware", this)) {
         qDebug() << "object registration error " << QDBusConnection::sessionBus().lastError().message();
     }
+
+    qDebug() << "[Hardware adaptor] Created";
 }
 
 QString Hardware::ping(const QString &message)
